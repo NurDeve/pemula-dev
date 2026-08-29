@@ -3,34 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>The Cafe</title>
 <style>
 
 /*ALL ITEMS  */
 
 * {
-padding: 0;
-margin: 0;
-box-sizing: border-box;
-scroll-behavior: smooth;
-overflow: hidden;
-overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* removed global overflow which can cause layout problems */
+}
+
+body {
+  overflow-y: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #222;
 }
 
 /* NAVBAR */
 
 nav  {
-width: 100%;
-position: sticky;
-background-color: black;
-top: 0;
-z-index: 1000;
+  width: 100%;
+  position: sticky;
+  background-color: black;
+  top: 0;
+  z-index: 1000;
 }
 
 /* JIKA KURSOR DIARAHKAN KE NAVBAR */
 
 nav li:hover {
-background-color:rgb(156, 156, 154);
+  background-color:rgb(156, 156, 154);
 }
 
 /* AGAR NAVBAR BISA DIATUR */
@@ -65,7 +71,7 @@ display: block;
 
 .position {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* STYLING GAMBAR HEADER */
@@ -73,6 +79,7 @@ display: block;
 .imgheader {
   width: 100%;
   height: 600px;
+  object-fit: cover; /* make image scale nicely */
 }
 
 /* STYLING BAGIAN H2 */
@@ -81,9 +88,10 @@ display: block;
 position: absolute;
 top: 50%;
 left: 50%;
-font-size: 25px;
+transform: translate(-50%, -50%);
+font-size: 36px;
 color: whitesmoke;
-
+text-align: center;
 }
 
 /* STYLING BAGIAN HEADER1 */
@@ -93,8 +101,8 @@ position: absolute;
 bottom: 2%;
 color: white;
 background-color: black;
-width: 200px;
-padding:3px 4px;
+width: 220px;
+padding:6px 8px;
 font-size: 16px;
 font-family: monospace;
 }
@@ -204,7 +212,7 @@ margin-bottom: 20px;
 
 /* STYLING MENU YANG ACTIVE (MAKANAN) */
 
-.active {
+.yang.active {
 display: block;
 }
 
@@ -246,9 +254,12 @@ flex-direction: column;
 
 /* STYLING KOLOM INPUT */
 
-input {
+input,
+textarea,
+select {
 margin: 15px 0;
-padding: 15px 5px;
+padding: 12px 8px;
+font-size: 14px;
 }
 
 /* STYLING TOMBOL */
@@ -259,6 +270,7 @@ color: #ffffff;
 padding: 13px 17px;
 border: none;
 font-size: 15px;
+cursor: pointer;
 }
 
 /* STYLING SAAT KURSOR DIARAHKAN KE TOMBOL */
@@ -284,12 +296,22 @@ padding:40px;
 font-size: 18px;
 }
 
+/* NAV SCROLLED STATE */
+nav.scrolled {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.95);
+}
+
 /* STYLING SAAT WEBSITE DIBUKA DI LAYAR YANG LEBIH KECIL */
 
 @media screen and (max-width:768px) {
-
+  .cafe3 { flex-direction: column; }
+  nav ul { flex-direction: column; }
+  nav li { width: 100%; }
+  .imgheader { height: 300px; }
+  .header1, .header2 { position: static; margin: 10px; background: rgba(0,0,0,0.7); display: inline-block; }
+  h3 { margin: 20px; }
 }
-
 
 </style>
 
@@ -318,13 +340,13 @@ font-size: 18px;
 
   <div class="position">
 
-  <img class="imgheader" src="gambar/tokokopi.webp" alt="">
+  <img class="imgheader" src="gambar/tokokopi.webp" alt="Interior of The Cafe">
 
-  <div class="h2"><h2>THE<br>CAFE</h2></div>
+  <div class="h2" aria-hidden="false"><h2>THE<br>CAFE</h2></div>
 
-  <div class="header1"><p>Open from 6am to 10pm</p></div>
+  <div class="header1" aria-label="Opening hours"><p>Open from 6am to 10pm</p></div>
 
-  <div class="header2"><p>JL Tambak Dalam Baru 2</p></div>
+  <div class="header2" aria-label="Address"><p>JL Tambak Dalam Baru 2</p></div>
 
   </div>
 
@@ -341,16 +363,16 @@ font-size: 18px;
   <h3>About The Cafe</h3>
 
   <div class="cafe1">
-  <p style="margin-bottom: 20px;">isi sendiri teksnya tentang cafe Lorem ipsum dolor sit,amet consectetur adipisicing elit. Doloremque magni, quidemporro voluptates eveniet qui expedita nobis,quod perferendis mollitia ab minus deserunt dolore nulla.</p>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,cupiditate iste! Sint ea ipsa consectetur non,nam laborum explicabo enim magnam doloremque rerum iste accusamus?</p>
+  <p style="margin-bottom: 20px;">isi sendiri teksnya tentang cafe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magni, quidem porro voluptates eveniet qui expedita nobis.</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, cupiditate iste! Sint ea ipsa consectetur non, nam laborum explicabo enim magnam doloremque rerum iste accusamus?</p>
   </div>
 
   <div class="cafe2">
-  <p style="margin-bottom: 10px;"><em>"Use products from nature for what it's worth - but never too early nor to late. "Fresh is the new sweet.</em></p>    
+  <p style="margin-bottom: 10px;"><em>"Use products from nature for what it's worth - but never too early nor too late. Fresh is the new sweet."</em></p>    
   <p>Chef, Coffeeist and Owner: Jibril Nur Muhammad</p>
   </div>
 
-  <img src="gambar/kopi.jpg" alt="" width="600" height="360">
+  <img src="gambar/kopi.jpg" alt="Cup of coffee on a table" width="600" height="360">
 
   <div class="cafe1">
   <p><strong>Opening hours:</strong> everyday from 6am to 10pm.</p>
@@ -403,7 +425,7 @@ font-size: 18px;
 
   <div class="item">
   <h4>Es Campur</h4>
-  <p>Buah nya masih segar dan bukan buah kemarin</p>
+  <p>Buahnya masih segar dan bukan buah kemarin</p>
   </div>
 
   </div>
@@ -427,7 +449,7 @@ font-size: 18px;
 
   </div>
 
-  <img src="gambar/kopi2.jpg" alt="" width="600" height="360">
+  <img src="gambar/kopi2.jpg" alt="Assorted coffees" width="600" height="360">
   </section><!-- 2 -->
 
   <!-- BAGIAN MENU -->
@@ -448,20 +470,27 @@ font-size: 18px;
 
   <p>Find us at some address at some place.</p>
 
-  <img src="gambar/map3.png" alt="" width="600px" height="360" style="margin: 20px 0;">
+  <img src="gambar/map3.png" alt="Map showing cafe location" width="600" height="360" style="margin: 20px 0;">
 
-  <p style="margin-bottom: 20px;"><span style="color: #ffffff; background-color: black; padding: 2px;">FYI!</span> We offer full-service catering for any event, large or small. weunderstand your needs and we will cater the food to satisfy the biggerst criteriaof them all, both look and taste</p>
+  <p style="margin-bottom: 20px;"><span style="color: #ffffff; background-color: black; padding: 2px;">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs.</p>
 
   <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
 
-  <div class="tabel">
-  <input type="text" placeholder="Name" required> 
-  <input type="number" placeholder="0" value="0">
-  <input type="date" required>
-  <input type="text" placeholder="Message / Special requirements">
-  </div>
-
-  <button type="button">SEND MESSAGE</button>
+  <form class="tabel" action="#" method="post" aria-label="Reservation form">
+    <label for="name">Name
+      <input id="name" name="name" type="text" placeholder="Your name" required>
+    </label>
+    <label for="people">People
+      <input id="people" name="people" type="number" min="1" value="1" required>
+    </label>
+    <label for="date">Date
+      <input id="date" name="date" type="date" required>
+    </label>
+    <label for="message">Message / Special requirements
+      <textarea id="message" name="message" rows="3" placeholder="Allergies, accessibility needs..."></textarea>
+    </label>
+    <button type="submit">SEND MESSAGE</button>
+  </form>
 
   </section><!-- 3 -->
 
@@ -477,7 +506,7 @@ font-size: 18px;
 
   <!-- BAGIAN FOOTER -->
 
- 
+  
 
   <script>
          window.addEventListener('scroll', function() {
