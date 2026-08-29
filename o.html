@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+
+/*ALL ITEMS  */
+
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+scroll-behavior: smooth;
+overflow: hidden;
+overflow-y: auto;
+}
+
+/* NAVBAR */
+
+nav  {
+width: 100%;
+position: sticky;
+background-color: black;
+top: 0;
+z-index: 1000;
+}
+
+/* JIKA KURSOR DIARAHKAN KE NAVBAR */
+
+nav li:hover {
+background-color:rgb(156, 156, 154);
+}
+
+/* AGAR NAVBAR BISA DIATUR */
+
+nav ul {
+ display: flex;
+}
+
+/* STYLING BAGIAN DALAM NAVBAR */
+
+nav li {
+list-style-type: none;
+width: 25%;
+text-align: center;
+padding: 0;
+letter-spacing: 2px;
+}
+
+/* BIAR GARIS ALAMAT NYA HILANG SAMA GANTI WARNA BAWAANNYA */
+
+nav li a{
+text-decoration: none;
+color: white;
+padding: 18px 0;
+display: block;
+}
+
+
+
+/* STYLING BAGIAN HEADER */
+
+
+.position {
+  position: relative;
+  overflow-y: hidden;
+}
+
+/* STYLING GAMBAR HEADER */
+
+.imgheader {
+  width: 100%;
+  height: 600px;
+}
+
+/* STYLING BAGIAN H2 */
+
+.h2 {
+position: absolute;
+top: 50%;
+left: 50%;
+font-size: 25px;
+color: whitesmoke;
+
+}
+
+/* STYLING BAGIAN HEADER1 */
+
+.header1 {
+position: absolute;
+bottom: 2%;
+color: white;
+background-color: black;
+width: 200px;
+padding:3px 4px;
+font-size: 16px;
+font-family: monospace;
+}
+
+/* STYLING BAGIAN HEADER2 */
+
+.header2 {
+position: absolute;
+bottom: 2%;
+right: 0;
+color: white;
+margin:0 20px;
+font-family: monospace;
+font-size: 16px;
+}
+
+/* STYLING BAGIAN CAFE ATAU BUAT NGILANGIN FLOAT */
+
+.cafe {
+text-align: center;
+clear: both;
+width: 100%;
+font-size: 15px;
+}
+
+/* STYLING BAGIAN H3 */
+
+h3 {
+letter-spacing: 5px;
+text-align: center;
+color: white;
+background-color: black;
+display: inline-block;
+padding: 10px;
+margin: 50px;
+}
+
+/* STYLING BAGIAN CAFE1 */
+
+.cafe1 {
+margin: 20px auto;
+max-width: 600px;
+text-align: justify;
+line-height: 1.8;
+}
+
+/* STYLING BAGIAN CAFE2 */
+
+.cafe2 {
+background-color: rgb(234, 235, 236);
+max-width: 600px;
+margin: 20px auto;
+padding: 10px;
+text-align: justify;
+line-height: 1.8;
+border-left: 5px solid rgb(194, 191, 191);
+}
+
+/* STYLING BAGIAN CAFE3 */
+
+.cafe3 {
+display: flex;
+border: 2px solid black;
+margin:auto;
+margin-top: 20px;
+width: 100%;
+max-width: 600px;
+box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* STYLING BAGIAN MENU */
+
+.menu {
+flex: 1;
+background-color: rgb(207, 207, 207);
+font-size: 18px;
+padding: 10px;
+border: none;
+cursor: pointer;
+transition: 0.2s;
+}
+
+/* STYLING SAAT KURSOR DIARAHKAN KE BAGIAN MENU*/
+
+.menu:hover {
+background-color: rgb(250, 255, 255);
+}
+
+/* STYLING SAAT MENU SEDANG DIKUNJUNGI */
+
+.menu.active {
+background-color: rgba(71, 68, 68, 0.623);
+color: #ffffff;
+}
+
+/* STYLING DAFTAR MAKANAN , MINUMAN , DAN JAJAN */
+
+.yang {
+border: 2px solid black;
+width: 100%;
+max-width: 600px;
+margin: 0 auto;
+display: none;
+box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.30);
+margin-bottom: 20px;
+}
+
+/* STYLING MENU YANG ACTIVE (MAKANAN) */
+
+.active {
+display: block;
+}
+
+/* STYLING DAFTAR MAKANAN , MINUMAN , DAN JAJAN */
+
+.item {
+text-align: justify;
+padding: 20px;
+}
+
+/* STYLING DAFTAR MAKANAN KHUSUS H4 */
+
+.item h4 {
+margin: 0 0 5px 0;
+font-size: 18px;
+}
+
+/* STYLING CAFE4 */
+
+.cafe4 {
+max-width: 600px;
+margin:0px auto;
+font-size: 15px;
+text-align: justify;
+}
+
+/* STYLING BAGIAN H3 DI (WHERE) */
+
+.besar {
+text-align: center;
+}
+
+/* STYLING BUNGKUS KOLOM INPUT */
+
+.tabel {
+display: flex;
+flex-direction: column;
+}
+
+/* STYLING KOLOM INPUT */
+
+input {
+margin: 15px 0;
+padding: 15px 5px;
+}
+
+/* STYLING TOMBOL */
+
+button {
+background-color: black;
+color: #ffffff;
+padding: 13px 17px;
+border: none;
+font-size: 15px;
+}
+
+/* STYLING SAAT KURSOR DIARAHKAN KE TOMBOL */
+
+button:hover {
+background-color: rgb(180, 180, 180);
+}
+
+/* STYLING FOTO YANG ADA DI (WHERE) */
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+/* STYLING BAGIAN FOOTER */
+
+footer {
+background-color: beige;
+text-align: center;
+margin: 15px 0 0;
+padding:40px;
+font-size: 18px;
+}
+
+/* STYLING SAAT WEBSITE DIBUKA DI LAYAR YANG LEBIH KECIL */
+
+@media screen and (max-width:768px) {
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+  <!-- BAGIAN NAVBAR -->
+
+  <nav>
+    <ul>
+    <li><a href="#home">HOME</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#menu">MENU</a></li>
+    <li><a href="#where">WHERE</a></li>
+    </ul>
+  </nav>
+
+  <!-- BAGIAN NAVBAR -->
+
+  <!-- BAGIAN HEADER -->
+
+  <header id="home">
+
+  <div class="position">
+
+  <img class="imgheader" src="gambar/tokokopi.webp" alt="">
+
+  <div class="h2"><h2>THE<br>CAFE</h2></div>
+
+  <div class="header1"><p>Open from 6am to 10pm</p></div>
+
+  <div class="header2"><p>JL Tambak Dalam Baru 2</p></div>
+
+  </div>
+
+  </header>
+
+  <!-- BAGIAN HEADER -->
+
+  <!-- BAGIAN ABOUT -->
+
+  <div class="cafe"><!--BIAR HILANGIN FLOAT KANAN TAPI KEBLABASAN SAMPE BAWAH-->
+
+  <section id="about"><!-- 1 -->
+
+  <h3>About The Cafe</h3>
+
+  <div class="cafe1">
+  <p style="margin-bottom: 20px;">isi sendiri teksnya tentang cafe Lorem ipsum dolor sit,amet consectetur adipisicing elit. Doloremque magni, quidemporro voluptates eveniet qui expedita nobis,quod perferendis mollitia ab minus deserunt dolore nulla.</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,cupiditate iste! Sint ea ipsa consectetur non,nam laborum explicabo enim magnam doloremque rerum iste accusamus?</p>
+  </div>
+
+  <div class="cafe2">
+  <p style="margin-bottom: 10px;"><em>"Use products from nature for what it's worth - but never too early nor to late. "Fresh is the new sweet.</em></p>    
+  <p>Chef, Coffeeist and Owner: Jibril Nur Muhammad</p>
+  </div>
+
+  <img src="gambar/kopi.jpg" alt="" width="600" height="360">
+
+  <div class="cafe1">
+  <p><strong>Opening hours:</strong> everyday from 6am to 10pm.</p>
+  <p><strong>Address:</strong> JL Tambak Dalam Baru 2</p>
+  </div>
+
+  </section><!-- 1 -->
+  <!-- BAGIAN ABOUT -->
+  <!-- BAGIAN MENU -->
+  <section id="menu"><!-- 2 -->
+
+  <h3>The Menu</h3>
+
+  <div class="cafe3"><!-- NAVBAR MENU MAKAN MINUM JAJAN -->
+  <button class="menu active" type="button" onclick="openMenu(event,'food')">Eat</button>
+  <button class="menu" type="button" onclick="openMenu(event,'drink')">Drink</button>
+  <button class="menu" type="button" onclick="openMenu(event, 'jajan')">Snack</button>
+  </div>
+
+  <div id="food" class="yang active"><!-- DAFTAR MAKANAN DENGAN KETERANGANNYA -->
+
+  <div class="item">
+  <h4>Ayam Bakar</h4>
+  <p>Dengan bumbu bakar asli buatan tangan</p>
+  </div>
+
+  <div class="item">
+  <h4>Mie Ayam</h4>
+  <p>Dengan ayam kampung pilihan</p>
+  </div>
+
+  <div class="item">
+  <h4>Bebek Bakar</h4>
+  <p>Dengan bumbu bakar asli buatan tangan</p>
+  </div>
+
+  </div>
+
+  <div id="drink" class="yang"><!-- DAFTAR MINUMAN DENGAN KETERANGANNYA -->
+
+  <div class="item">
+  <h4>Es Jeruk</h4>
+  <p>Diperas dari jeruk asli</p>
+  </div>
+
+  <div class="item">
+  <h4>Es Teh</h4>
+  <p>Manisnya bisa diatur sesuai selera</p>
+  </div>
+
+  <div class="item">
+  <h4>Es Campur</h4>
+  <p>Buah nya masih segar dan bukan buah kemarin</p>
+  </div>
+
+  </div>
+
+  <div id="jajan" class="yang"><!-- DAFTAR JAJAN DENGAN KETERANGANNYA -->
+
+  <div class="item">
+  <h4>Martabak Manis</h4>
+  <p>Topingnya nggak main-main</p>
+  </div>
+
+  <div class="item">
+  <h4>Lapis Kukus</h4>
+  <p>Selembut kain sutra</p>
+  </div>
+
+  <div class="item">
+  <h4>Puding</h4>
+  <p>Dijamin nambah lagi dan lagi</p>
+  </div>
+
+  </div>
+
+  <img src="gambar/kopi2.jpg" alt="" width="600" height="360">
+  </section><!-- 2 -->
+
+  <!-- BAGIAN MENU -->
+
+  </div><!--BIAR HILANGIN FLOAT KANAN TAPI KEBLABASAN SAMPE BAWAH-->
+
+  <!-- BAGIAN WHERE -->
+
+  <div class="cafe4"><!-- BUAT BUNGKUS BAGIAN WHERE  -->
+
+ 
+
+  <section id="where"><!-- 3 -->
+
+  <div class="besar">
+  <h3>WHERE TO FIND US</h3>
+  </div>
+
+  <p>Find us at some address at some place.</p>
+
+  <img src="gambar/map3.png" alt="" width="600px" height="360" style="margin: 20px 0;">
+
+  <p style="margin-bottom: 20px;"><span style="color: #ffffff; background-color: black; padding: 2px;">FYI!</span> We offer full-service catering for any event, large or small. weunderstand your needs and we will cater the food to satisfy the biggerst criteriaof them all, both look and taste</p>
+
+  <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
+
+  <div class="tabel">
+  <input type="text" placeholder="Name" required> 
+  <input type="number" placeholder="0" value="0">
+  <input type="date" required>
+  <input type="text" placeholder="Message / Special requirements">
+  </div>
+
+  <button type="button">SEND MESSAGE</button>
+
+  </section><!-- 3 -->
+
+   </div><!-- BUAT BUNGKUS BAGIAN WHERE  -->
+
+  <!-- BAGIAN WHERE -->
+
+  <!-- BAGIAN FOOTER -->
+  
+  <footer>
+  <p>@powered by my hand</p>
+  </footer>
+
+  <!-- BAGIAN FOOTER -->
+
+ 
+
+  <script>
+         window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('nav'); 
+    if (window.scrollY > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+    function openMenu(evt, menuName) {
+      const menuConten = document.getElementsByClassName('yang');
+      for(let i = 0; i < menuConten.length; i++){
+        menuConten[i].classList.remove('active')
+      }
+    
+    const menuTombol = document.getElementsByClassName('menu');
+    for(let i = 0; i < menuTombol.length; i++){
+      menuTombol[i].classList.remove('active')
+    }
+    document.getElementById(menuName).classList.add('active');
+    evt.currentTarget.classList.add('active');
+    }
+
+  </script>
+</body>
+</html>
